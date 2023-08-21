@@ -101,8 +101,7 @@ where
             self.cointoss_receiver = Some(cointoss_receiver);
         }
 
-        let mut rng = thread_rng();
-        let seeds: [[Block; 2]; CSP] = std::array::from_fn(|_| [rng.gen(), rng.gen()]);
+        let seeds: [[Block; 2]; CSP] = std::array::from_fn(|_| thread_rng().gen());
 
         // Send seeds to sender
         self.base
